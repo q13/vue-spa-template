@@ -81,11 +81,15 @@
     computed: Object.assign({}, mapGetters([
       'appProp1_'
     ])),
-    methods: Object.assign({}, mapMutations([
+    methods: Object.assign({
+      welcomeHere: function () {
+        alert(3);
+      }
+    }, mapMutations([
       'appProp1Increment'
     ])),
     mounted: function () {
-      // this.welcomeHere();
+      this.welcomeHere();
       // this.appProp1Increment();
     }
   }

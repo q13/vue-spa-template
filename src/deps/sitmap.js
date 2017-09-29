@@ -42,7 +42,11 @@ function extractNavs(records: any, all: any) {
   var navs = [];
   records.forEach((record) => {
     if (record.navVisible) {
-      let nav = {
+      let nav: {
+        text: string,
+        link: string,
+        children?: []
+      } = {
         text: record.navText,
         link: record.navLink || (record.route && (() => {
           const uids = record.uid.split('-');

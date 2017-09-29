@@ -6,6 +6,11 @@ export default {
       console.log('Channel2 received', data);
       this.data = data;
     })
+    this.addDeprecatedApi({
+      oldName: 'channel2Method',
+      newName: 'channel3Method',
+      description: 'fjewifiewfiew'
+    });
   },
   data: function () {
     return {
@@ -13,7 +18,7 @@ export default {
     };
   },
   methods: {
-    channel2Method: function () {
+    channel3Method: function () {
       alert(1);
     }
   }
