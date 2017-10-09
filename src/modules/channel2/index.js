@@ -6,7 +6,7 @@ export default {
       console.log('Channel2 received', data);
       this.data = data;
     })
-    this.addDeprecatedApi({
+    this.$addDeprecatedApi({
       oldName: 'channel2Method',
       newName: 'channel3Method',
       description: 'fjewifiewfiew'

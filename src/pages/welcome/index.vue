@@ -12,8 +12,8 @@
     <div>
       <chart :options="pie" ref="pie" auto-resize></chart>
     </div>
+    <input type="text" />
     <div>
-      {{ appProp1_ }}
     </div>
     <div style="border: 1px solid #000000; padding: 8px;">
       <router-view class="welcome"></router-view>
@@ -78,16 +78,24 @@
       Channel1,
       Channel2
     },
-    computed: Object.assign({}, mapGetters([
-      'appProp1_'
-    ])),
+    computed: {},
     methods: Object.assign({
       welcomeHere: function () {
-        alert(3);
+        // alert(3);
       }
     }, mapMutations([
       'appProp1Increment'
     ])),
+    created: function () {
+     //  alert('created');
+    },
+    beforeRouteUpdate() {
+      alert(1);
+      console.log('real-component', arguments);
+    },
+    routeUpdated() {
+      alert('routeUpdated');
+    },
     mounted: function () {
       this.welcomeHere();
       // this.appProp1Increment();
