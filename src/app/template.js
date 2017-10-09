@@ -12,6 +12,7 @@ export default `
     </div>
     <router-link to="/welcome/1">Welcome1</router-link>
     <router-link to="/welcome/2">Welcome2</router-link>
+    <!-- Fake component view -->
     <router-view></router-view>
   </div>
 `

@@ -44,6 +44,10 @@ function extractRoutes(records: any, all: any) {
       };
       let isCache = record.isCache; // 是否有缓存标识
       const pageName = getSemanticPageName(record, all);
+      // 默认route param以props方式传递
+      if (route.props === undefined) {
+        route.props = true;
+      }
       // 存储页面缓存名称
       if (isCache !== undefined) {
         if (isCache) {
@@ -99,6 +103,7 @@ function extractRoutes(records: any, all: any) {
         }
       };
       // console.log('name', getSemanticPageName(record, all));
+      // 伪造一个page component proxy.
       let FakeComponent = route.component = {
         beforeRouteEnter(to, from, next) {
           next();
