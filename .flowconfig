@@ -1,7 +1,9 @@
 [ignore]
 .*/node_modules/.*
+.*/build/.*
 [include]
 ./src/.*/*.vue
+./src/.*/*.js
 [libs]
 flow-typed
 [options]

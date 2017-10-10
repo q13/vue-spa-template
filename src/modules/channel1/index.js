@@ -4,7 +4,6 @@ export default {
     setTimeout(() => {
       console.log('Channel1 message send');
       this.$emit('::', 'Channel1 message.')
-      console.log('$route-channel1', this.$route);
     }, 2000);
   }
 };
