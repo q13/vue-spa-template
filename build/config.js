@@ -1,6 +1,10 @@
 var path = require('path')
-let argvs = (process.argv[2] || "").split("=")
-let { proxy } = { [argvs[0]]: argvs[1] }
+let argvs = {}
+process.argv.slice(2).forEach(arg => {
+  let arr = (arg || '').split('=')
+  argvs[arr[0]] = arr[1]
+})
+let { proxy, port } = argvs
 
 module.exports = {
   build: {
@@ -17,7 +21,7 @@ module.exports = {
     // productionGzipExtensions: ['js', 'css']
   },
   dev: {
-    port: 8082,
+    port: port || 8080,
     autoOpenBrowser: true,
     assetsSubDirectory: '/',
     assetsPublicPath: '/',
