@@ -1,4 +1,3 @@
-// @flow
 /**
  * 建立组件或模块间通信渠道机制
  * 通过自定义指令方式
@@ -13,7 +12,7 @@ const nilChan = {
   off: () => {},
   cache: () => {}
 };
-Channel.install = function (Vue: any) {
+Channel.install = function (Vue, options) {
   // const extend = Vue.extend
   /**
    * 扩展extend方法，给每个Component添加__
@@ -74,10 +73,8 @@ Channel.install = function (Vue: any) {
             // 带上*
             if (v.store.has('*')) {
               let starValue = v.store.get('*');
-              if (starValue) {
-                starValue.cache = args; // 全局作用同样更新
-                callbacksList.push(starValue.callbacks);
-              }
+              starValue.cache = args; // 全局作用同样更新
+              callbacksList.push(starValue.callbacks);
             }
             // 执行对应的callback
             callbacksList.forEach((callbacks) => {
@@ -116,7 +113,7 @@ Channel.install = function (Vue: any) {
         }
         /**
          * 获取最近一次emit出来的arguments
-         * @param { VueComponent } ctor 
+         * @param { VueComponent } ctor
          */
         const getCacheCopy = (ctor) => {
           let result = null;
@@ -193,9 +190,9 @@ Channel.install = function (Vue: any) {
 }
 /**
  * 注册callback
- * @param {function (*)} callback 
+ * @param {function (*)} callback
  */
-function registCallback (callback: () => void) {
+function registCallback (callback) {
   let callbacks = this.callbacks;
   // 防止重复注册
   if (!callbacks.some((v) => {
@@ -207,9 +204,9 @@ function registCallback (callback: () => void) {
 }
 /**
  * 取消注册callback
- * @param {function (*)} callback 
+ * @param {function (*)} callback
  */
-function unregistCallback (callback: () => void) {
+function unregistCallback (callback) {
   let callbacks = this.callbacks;
   this.callbacks = callbacks.filter((v) => {
     return v !== callback;

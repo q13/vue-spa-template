@@ -29,9 +29,9 @@ Mapping.install = function (Vue, options) {
     methods: {
       /**
        * 添加弃用接口
-       * @param {{ oldName: string, newName: string, description: string}|[]} options 
+       * @param {{ oldName: string, newName: string, description: string}|[]} options
        */
-      $addDeprecatedApi: addDeprecatedApi
+      addDeprecatedApi: addDeprecatedApi
     }
   })
   Vue.directive('mapping', {

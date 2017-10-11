@@ -11,13 +11,12 @@ Vue.use(Channel);
 Vue.use(Mapping);
 Vue.use(VueRouter);
 Vue.use(Vuex);
-const { mapMutations, mapGetters, mapActions, mapState } = Vuex;
+const { mapMutations, mapGetters, mapActions } = Vuex;
 export {
   Vue,
   VueRouter,
   Vuex,
   mapMutations,
   mapGetters,
-  mapActions,
-  mapState
+  mapActions
 }
