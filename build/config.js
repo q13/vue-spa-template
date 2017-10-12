@@ -25,8 +25,8 @@ module.exports = {
     autoOpenBrowser: true,
     assetsSubDirectory: '/',
     assetsPublicPath: '/',
-    // 如需代理，在此处填写 
-    // `npm run dev -- proxy=127.0.0.1` 
+    // 如需代理，在此处填写
+    // `npm run dev -- proxy=127.0.0.1`
     proxyTable: proxy
       ? {
         '*': {
